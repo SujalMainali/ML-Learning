@@ -9,7 +9,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-df=pd.read_csv("Programming/Learning_python/Machine_Learning/9.salaries.csv")
+df=pd.read_csv("9.salaries.csv")
 inputs=df.drop('salary_more_then_100k',axis='columns')
 target=df['salary_more_then_100k']
 
@@ -36,6 +36,8 @@ x_train,x_test,y_train,y_test=train_test_split(Final_Input, target,test_size=0.2
 model.fit(x_train,y_train)
 
 y_predict=model.predict(x_test)
+
+print(y_predict)
 
 cm=confusion_matrix(y_test,y_predict)
 
