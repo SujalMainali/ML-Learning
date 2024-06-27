@@ -9,12 +9,14 @@ class gradient_descent: #creating a gradient descent class to store the variable
         self.iter=iteration
 
     def fit(self,x,y): #fit function performs the main algorithm of gradient descent
-        X=np.array(x)
-        Y=np.array(y).reshape(-1,1)
+        X=np.array(x) 
+        Y=np.array(y).reshape(-1,1) #this reshapes the Y array from (features, ) to (features, 1)
         n_samples,n_features=X.shape
-        self.w=np.zeros((n_features,1))
+        self.w=np.zeros((n_features,1)) #A matrix of single column is created to store weights
         self.b= 0
         # print(f"{(self.w).shape} {self.w} \n ({n_samples},{n_features})")
+
+        #This is to scale the data in order to make the cost function manageable
         for col_idx in range(n_features):
             if (np.max(X[:, col_idx]) > 100)and(np.max(X[:, col_idx]) < 1000):
                 X[:, col_idx] /= 1000
@@ -24,7 +26,9 @@ class gradient_descent: #creating a gradient descent class to store the variable
                 X[:, col_idx] /= 100000
         md=np.zeros((n_features,1))
         bd=0
-        print(f"{X.shape},{Y.shape},{self.w.shape}, {md.shape}")
+        #print(f"{X.shape},{Y.shape},{self.w.shape}, {md.shape}")
+
+        #This is implementing the algorithm for certain no of ierations
         for i in range(self.iter):
             
             y_predicted=np.dot(X,self.w) + self.b
@@ -39,6 +43,8 @@ class gradient_descent: #creating a gradient descent class to store the variable
             
             self.w= self.w- self.lr*md
             self.b= self.b - self.lr*bd
+
+            #this prints the cost and derivatives every 100 iterations
             if (i % 100 == 0):
                 print(f"cost= {cost}")
                 print(f"md= {md}  bd={bd}")
