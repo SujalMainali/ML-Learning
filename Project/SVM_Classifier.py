@@ -2,29 +2,31 @@
 import numpy  as np
 import matplotlib.pyplot as plt
 
-class SVM:
-    def __init__(self,learning_rate=0.01,lambda_param=0.01,iters=1000)  :
+class SVM: #this creates a class SVM which will consists of all the variables and function which will allow us to run SVM algorithm
+
+    def __init__(self,learning_rate=0.01,lambda_param=0.01,iters=1000)  : #this is the constructor which can accept initial parameters when object is  created
         self.lr=learning_rate
         self.lambda_=lambda_param
         self.w=None
         self.b=None
         self.iters=1000
 
-    def checkWeights(self):
+    def checkWeights(self): #a simple function to show weights if user wishes to see it
         return self.w
     
-    def checkBias(self):
+    def checkBias(self): # similar function for bias
         return self.b
 
-    def fit(self,X,y):
-        n_samples,n_features= X.shape
+    def fit(self,X,y): #this is the main function which will perform the optimation of weights and biases
 
-        self.w=np.zeros(n_features)
-        self.b=0
+        n_samples,n_features= X.shape # the shape of x which consits of samples in rows and different features in columns is recorded as such
 
-        for i in range(self.iters) :
-            for idx,x_i in enumerate(X):
-                condition= y[idx]*(np.dot(self.w,x_i)-self.b) >=1
+        self.w=np.zeros(n_features)   #Initially initializing the weights as all zeros with the no of rows same as features of X
+        self.b=0                       #Initializing b as 0
+
+        for i in range(self.iters) : #runs iteratio for certain time
+            for idx,x_i in enumerate(X): #the enumerate(X) returns the index and the value of x as a tuple value for each row of x
+                condition= y[idx]*(np.dot(self.w,x_i)-self.b) >=1 #Basic condition of SVM algorithm
                 if (condition):
                     wd=2*self.lambda_*self.w
                     self.w-=self.lr*wd
@@ -36,14 +38,14 @@ class SVM:
                     self.b-=self.lr*bd
 
 
-    def predict(self,X=np.array([])):
+    def predict(self,X=np.array([])): #This function is called after the user has fitted the data then this predict function is used to make predictions
         n_sample,n_features=X.shape
         y=np.zeros(n_sample)
         for idx,xi in enumerate(X):
             y[idx]= np.dot(self.w,xi)-self.b
         return np.sign(y)
     
-    def accuracy(self,X,Y):
+    def accuracy(self,X,Y): #this checks the accuracy of prediction by counting the no of correct and incorrect predictions the score is ratio of correct to total predictions
         correct_num=0
         incorrect_num=0
         for idx,xi in enumerate(X):
@@ -57,7 +59,8 @@ class SVM:
         score= correct_num/total_predictions
         return score 
     
-    def plot(self,X,Y,x_axis='Feature1',y_axis='True Value',z_axis='Feature2') :
+    def plot(self,X,Y,x_axis='Feature1',y_axis='True Value',z_axis='Feature2') : #this is a plot function created to make life easier to plot 2D and 3D plots which working with some data
+
         if isinstance(X, np.ndarray):
         # Check the number of dimensions
             if (X.ndim == 1):
@@ -73,7 +76,7 @@ class SVM:
     def Plot_2D(self,X,Y,x_axis,y_axis):
         # for idx,xi in enumerate(X):
         #     x0=X[idx][0]
-        
+        #This algorithm plots x and y as red when Y==1 and blue when y==-1
         mask = Y == 1
         plt.scatter(X[mask], Y[mask], marker='+', color='red')
         plt.scatter(X[~mask], Y[~mask], marker='+', color='blue')
