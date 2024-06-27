@@ -65,7 +65,7 @@ class gradient_descent: #creating a gradient descent class to store the variable
         return y_pred
     
 
-df=pd.read_csv("/home/violent_sujal67/Programming/Learning_python/Machine_Learning/Project/homeprices2.csv")
+df=pd.read_csv("homeprices2.csv")
 df.dropna(inplace=True)
 print(df)
 
