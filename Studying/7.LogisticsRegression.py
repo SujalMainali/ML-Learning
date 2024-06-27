@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 
-df= pd.read_csv("Programming/Learning_python/Machine_Learning/Logistics_regression_insurance_data.csv")
+df= pd.read_csv("Logistics_regression_insurance_data.csv")
 
 plt.scatter(df.age,df.bought_insurance,marker='+')
 

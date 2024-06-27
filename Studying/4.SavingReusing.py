@@ -6,7 +6,7 @@ from sklearn import linear_model
 import pandas as pd
 
 
-df=pd.read_csv("Programming/Learning_python/Machine_Learning/homeprices.csv")
+df=pd.read_csv("homeprices.csv")
 reg=linear_model.LinearRegression()#THis will create a regression linear model
 reg.fit(df[['area']],df.price)
 reg.predict([[2700]])

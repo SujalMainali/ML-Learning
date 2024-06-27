@@ -11,7 +11,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 
-df=pd.read_csv("Programming/Learning python/Machine Learning/homeprices2.csv")
+df=pd.read_csv("homeprices2.csv")
 #this dataframe contains a NAN value lets rectify that by filling it with sutiable data
 
 #we can use various methods lets go with median for this one

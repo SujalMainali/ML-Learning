@@ -12,7 +12,7 @@
 #We create a new column for each of the categories and assign 1 or 0 based on the presense or absense of that category
 import pandas as pd
 
-df=pd.read_csv('Programming/Learning_python/Machine_Learning/Encodinghomeprices.csv')
+df=pd.read_csv('Encodinghomeprices.csv')
 #we have a function in pandas that can create dummy variables for each category
 pd. get_dummies(df.town)
 df=pd.concat([df,pd. get_dummies(df.town)])

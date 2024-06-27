@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model
 from word2number import w2n
 
-df= pd.read_csv("Programming/Learning python/Machine Learning/Excise2.csv")
+df= pd.read_csv("Excise2.csv")
 
 df['experience'] = df['experience'].apply(w2n.word_to_num)
 #This will convert the numbers in words to numerical forms

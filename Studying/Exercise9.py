@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
 
-df=pd.read_csv('/home/violent_sujal67/Programming/Learning_python/Machine_Learning/exercise9.csv')
+df=pd.read_csv('exercise9.csv')
 df.drop(['Name','SibSp','Parch','Ticket','Embarked','Cabin','PassengerId','Pclass'],axis=1,inplace=True)
 
 df.dropna(inplace=True)

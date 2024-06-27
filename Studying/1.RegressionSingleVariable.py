@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 
-df=pd.read_csv("Programming/Learning python/Machine Learning/homeprices.csv")
+df=pd.read_csv("homeprices.csv")
 
 plt.scatter(df.area,df.price)
 #This will plot the points having area on x-axis and prices on y-axis
