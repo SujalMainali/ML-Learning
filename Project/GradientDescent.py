@@ -67,14 +67,12 @@ class gradient_descent: #creating a gradient descent class to store the variable
 
 df=pd.read_csv("homeprices2.csv")
 df.dropna(inplace=True)
-print(df)
+# print(df)
 
 
-Model=gradient_descent(learning_rate=0.0001,iteration=100000)
+#Model=gradient_descent(learning_rate=0.0001,iteration=100000)
 
-Model.fit(df[['area','bedrooms','age']],df.price)
 
-print(Model.predict([[3400.0,5.0,19.0]]))
 
 
 
