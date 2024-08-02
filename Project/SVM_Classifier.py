@@ -98,6 +98,7 @@ class SVM: #this creates a class SVM which will consists of all the variables an
         ax.set_xlabel(x_axis)
         ax.set_ylabel(y_axis)
         ax.set_zlabel(z_axis)
+        
         plt.show()
 
 
